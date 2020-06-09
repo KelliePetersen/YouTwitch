@@ -7,7 +7,7 @@ export class GoogleAuth extends Component {
     window.gapi.load('client:auth2', () => {
       window.gapi.client.init({
         clientId: '282121290145-c99t4l24f4pqqi8rt8vf0tdobdop6hd4.apps.googleusercontent.com',
-        scope: 'client'
+        scope: 'email'
       }).then(() => {
         this.auth = window.gapi.auth2.getAuthInstance();
         this.setState({ isSignedIn: this.auth.isSignedIn.get()});
@@ -22,13 +22,32 @@ export class GoogleAuth extends Component {
     this.setState({ isSignedIn: this.auth.isSignedIn.get() });
   }
 
+  onSignInClick = () => {
+    this.auth.signIn();
+  }
+
+  onSignOutClick = () => {
+    this.auth.signOut();
+  }
+  
+
   renderAuthButton() {
     if (this.state.isSignedIn === null) {
-      return <div>No idea</div>
+      return null;
     } else if (this.state.isSignedIn) {
-      return <div>Signed in</div>
+      return (
+        <button onClick={this.onSignOutClick} className="ui red google button">
+          <i className="google icon" />
+          Sign Out
+        </button>
+      )
     } else {
-      return <div>Not signed in</div>
+      return (
+        <button onClick={this.onSignInClick} className="ui blue google button">
+          <i className="google icon" />
+          Sign in with Google
+        </button>
+      )
     }
   }
 
