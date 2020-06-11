@@ -8,9 +8,12 @@ class StreamEdit extends React.Component {
   }
   
   render() {
+    if (!this.props.stream) {
+      return <div>Loading...</div>
+    }
     return (
       <div>
-        StreamEdit
+        {this.props.stream.title}
       </div>
     )
   }
