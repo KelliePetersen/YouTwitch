@@ -9,11 +9,12 @@ export class StreamShow extends Component {
 
   render() {
     if (!this.props.stream) {
-      return <div>Loading the stream...</div>
+      return <div><h1>Loading the stream...</h1></div>
     }
     return (
       <div>
-        Video of {this.props.stream.title}
+        <h1>{this.props.stream.title}</h1>
+        <h5>{this.props.stream.description}</h5>
       </div>
     )
   }
