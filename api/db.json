@@ -1,3 +1,14 @@
 {
-  "streams": []
+  "streams": [
+    {
+      "title": "asdf",
+      "description": "boopers",
+      "id": 1
+    },
+    {
+      "title": "New stream for testing userId",
+      "description": "Submit me boi",
+      "id": 2
+    }
+  ]
 }
